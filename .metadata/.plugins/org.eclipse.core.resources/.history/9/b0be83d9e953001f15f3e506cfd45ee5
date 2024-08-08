@@ -1,0 +1,40 @@
+package com.wu.ecommerce.service;
+
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.User;
+import com.wu.ecommerce.exception.UserNotFoundException;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public User addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUserByUserId(String id) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User[]> getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String removeUserByUserId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUserByUserId(String id, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

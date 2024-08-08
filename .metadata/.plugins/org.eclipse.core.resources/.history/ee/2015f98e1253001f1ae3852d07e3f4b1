@@ -1,0 +1,28 @@
+package com.wu.ecommerce;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.service.ProductService;
+import com.wu.ecommerce.service.ProductServiceImpl;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		//data transport object = transfers data from one layer to other
+		ProductService productService = ProductServiceImpl.getInstance();
+		
+		
+		
+		for(int i = 0; i<=11; i++) {
+			productService.addProduct(new Product("1", "bottle", 100, "stationary"));
+		}
+		
+		Product products[] = new Product[10];
+		System.out.println(products.length);
+		
+		for (Product product : products) {
+			System.out.println(product);
+		}
+	}
+
+}

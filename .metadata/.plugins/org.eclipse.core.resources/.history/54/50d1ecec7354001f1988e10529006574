@@ -1,0 +1,50 @@
+package com.wu.ecommerce;
+
+import java.util.*;
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.InvalidIdException;
+import com.wu.ecommerce.exception.InvalidPriceException;
+import com.wu.ecommerce.service.ProductService;
+import com.wu.ecommerce.service.ProductServiceImpl;
+
+public class Main {
+
+public static void main(String[] args) {
+		
+		//data transport object = transfers data from one layer to other
+		ProductService productService = ProductServiceImpl.getInstance();
+//		
+//		
+//		
+//		
+			productService.addProduct(new Product("abc", "bottle", 100, "stationary"));
+//			productService.addProduct(new Product("2", "bottle1", 100, "stationary"));
+//			productService.addProduct(new Product("3", "bottle2", 100, "stationary"));
+//			productService.addProduct(new Product("4", "bottle3", 100, "stationary"));
+//		
+//		
+////		productService.getEmployeeByProductId("1");
+////		productService.getProducts();
+//		productService.getAllProductsByCategory("stationary");
+//		
+//		
+	try {
+		Product product  = new Product("abc", "abc", 1, "cat1");
+		System.out.println(product.hashCode());
+		System.out.println(Integer.toHexString(product.hashCode()));
+		System.out.println(product.getPrice());
+		System.out.println(product);
+	} catch (InvalidIdException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	catch (InvalidPriceException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+		
+	}
+
+

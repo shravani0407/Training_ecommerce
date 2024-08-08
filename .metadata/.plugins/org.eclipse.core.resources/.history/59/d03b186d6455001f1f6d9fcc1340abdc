@@ -1,0 +1,24 @@
+package com.wu.ecommerce.repo;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+import com.wu.ecommerce.exception.IdNotFoundExeption;
+
+public interface ProductRepository {
+	
+	
+	public Product addProduct(Product product) throws SQLException, ClassNotFoundException;
+	public Optional<Product> getEmployeeByProductId(String id);
+	public Set<Product> getProducts() throws DataNotFoundExeption;
+	public List<Product> getAllProductsByCategory(String cat) throws DataNotFoundExeption;
+	public String removeProductByProductId(String id) throws IdNotFoundExeption;
+	public Product updateProductByProductId(String id, Product product);
+	
+}
+//this should be ending names of an repository - tor, able, services, repository

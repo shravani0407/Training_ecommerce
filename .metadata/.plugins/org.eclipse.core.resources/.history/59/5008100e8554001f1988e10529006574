@@ -1,0 +1,48 @@
+package com.wu.ecommerce;
+
+import java.util.*;
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.dto.User;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+import com.wu.ecommerce.exception.InvalidIdException;
+import com.wu.ecommerce.exception.InvalidPriceException;
+import com.wu.ecommerce.service.ProductService;
+import com.wu.ecommerce.service.ProductServiceImpl;
+
+public class Main {
+
+public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		ProductService productService = ProductServiceImpl.getInstance();
+		Product product = null;
+		try {
+			product = new Product("PID1", "productName1", 100, "Cat1");
+		} catch (InvalidIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidPriceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		int choice = 0;
+		while(true) {
+			System.out.println("enter the choice");
+			choice = scanner.nextInt();
+			
+			switch (choice) {
+			case 1:
+				productService.addProduct(product);
+				break;
+
+			default:
+				break;
+			}
+		}
+	
+}
+		
+	}
+
+

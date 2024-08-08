@@ -1,0 +1,13 @@
+package com.wu.ecommerce.exception;
+
+import java.util.function.Supplier;
+
+public class DataNotFoundExeption implements Supplier {
+
+	@Override
+	public Object get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

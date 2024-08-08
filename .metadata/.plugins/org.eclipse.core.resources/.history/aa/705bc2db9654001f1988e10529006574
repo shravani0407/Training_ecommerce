@@ -1,0 +1,104 @@
+package com.wu.ecommerce.repo;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+import com.wu.ecommerce.exception.IdNotFoundExeption;
+
+public class ProductRepositoryImpl implements ProductRepository {
+	
+	private ProductRepositoryImpl() {
+		// TODO Auto-generated constructor stub
+	}
+//	private Product[] products = new Product[10];
+	
+	private static ProductRepository productRepository;
+	
+	private static int counter = -1;
+
+	public static ProductRepository getInstance() {
+		if(productRepository == null) {
+			//create the object
+			productRepository = new ProductRepositoryImpl();
+		}
+		return productRepository;
+	}
+	
+	private Set<Product> products = new HashSet<Product>();
+	public Product addProduct(Product product) {
+		// TODO Auto-generated method stub
+//		if(counter >= products.length-1) {
+//			Product temp[] = new Product[products.length * 2];
+//			System.arraycopy(products, 0, temp, 0, products.length);
+//			products = temp;			
+//		}
+//		products[++counter] = product;
+//		
+//		return product;
+		
+		boolean result = products.add(product);
+		System.out.println(result);
+		return product;
+		
+	}
+
+	public Product getProductById(String id) throws IdNotFoundExeption {
+		// TODO Auto-generated method stub
+		Product p = null;
+//		for (Product product : products) {
+//			if(product.getProductId().equals(id) && product != null) {
+//				return Optional.of(product);
+//			}
+//		}
+		return products.stream().filter(e->e.getProductId().equals(id))
+				.findFirst().orElseThrow(()->new IdNotFoundExeption("id is not present"));
+	}
+
+	public Set<Product> getProducts() throws DataNotFoundExeption {
+		// TODO Auto-generated method stub
+		
+		return Optional.ofNullable(products)
+				.filter(l->!l.isEmpty())
+				.orElseThrow(() -> new DataNotFoundExeption("Data is not present."));
+	
+	}
+
+	public List<Product> getAllProductsByCategory(String cat) throws DataNotFoundExeption {
+		
+		//products.stream().filter(e->e.getCategoryName().equals(cat)).toList();           to list is available from java version 16
+				List<Product> temp = products
+				 .stream()
+				 .filter(e->e.getCategoryName().equals(cat)).collect(Collectors.toList());
+		
+			return Optional.ofNullable(temp).filter(l->!l.isEmpty()).orElseThrow(()-> new DataNotFoundExeption("data is not available"));
+	}
+
+	public String removeProductByProductId(String id) throws IdNotFoundExeption {
+		Product product = this.getProductById(id);
+		boolean result = products.remove(product);
+		if(result) {
+			return "success";
+		}
+		else {
+			return "fail";
+		}
+	}
+
+	public Product updateProductByProductId(String id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Product> getEmployeeByProductId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

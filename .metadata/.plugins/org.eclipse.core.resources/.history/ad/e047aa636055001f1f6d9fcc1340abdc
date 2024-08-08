@@ -1,0 +1,15 @@
+package com.wu.ecommerce.repo;
+
+import java.util.Optional;
+import com.wu.ecommerce.dto.User;
+import com.wu.ecommerce.exception.UserNotFoundException;
+
+public interface UserRepository {
+
+	public User addUser(User user);
+	public User getUserByUserId(String id) throws UserNotFoundException;
+	public Optional<User[]> getUser();
+	public String removeUserByUserId(String id);
+	public User updateUserByUserId(String id, User user);
+	
+}

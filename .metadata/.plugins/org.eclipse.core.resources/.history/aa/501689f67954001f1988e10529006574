@@ -1,0 +1,18 @@
+package com.wu.ecommerce.repo;
+
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+
+public interface ProductRepository {
+	
+	
+	public Product addProduct(Product product);
+	public Optional<Product> getEmployeeByProductId(String id);
+	public Optional<Product[]> getProducts();
+	public Optional<Product[]> getAllProductsByCategory(String cat);
+	public String removeProductByProductId(String id);
+	public Product updateProductByProductId(String id, Product product);
+	
+}
+//this should be ending names of an repository - tor, able, services, repository

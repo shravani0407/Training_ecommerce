@@ -1,0 +1,99 @@
+package com.wu.ecommerce.repo;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+
+public class ProductRepositoryImpl implements ProductRepository {
+	
+	private ProductRepositoryImpl() {
+		// TODO Auto-generated constructor stub
+	}
+//	private Product[] products = new Product[10];
+	
+	private static ProductRepository productRepository;
+	
+	private static int counter = -1;
+
+	public static ProductRepository getInstance() {
+		if(productRepository == null) {
+			//create the object
+			productRepository = new ProductRepositoryImpl();
+		}
+		return productRepository;
+	}
+	
+	private ArrayList<Product> products = new ArrayList<Product>();
+	public Product addProduct(Product product) {
+		// TODO Auto-generated method stub
+//		if(counter >= products.length-1) {
+//			Product temp[] = new Product[products.length * 2];
+//			System.arraycopy(products, 0, temp, 0, products.length);
+//			products = temp;			
+//		}
+//		products[++counter] = product;
+//		
+//		return product;
+		
+		boolean result = products.add(product);
+		if (result) {
+			return product;
+		}
+		else {
+			return null;
+		}
+		
+		
+	}
+
+	public Optional<Product> getProductById(String id) {
+		// TODO Auto-generated method stub
+		Product p = null;
+//		for (Product product : products) {
+//			if(product.getProductId().equals(id) && product != null) {
+//				return Optional.of(product);
+//			}
+//		}
+		return products.stream().filter(e->e.getProductId().equals(id))
+				.findFirst();
+	}
+
+	public ArrayList<Product> getProducts() throws DataNotFoundExeption {
+		// TODO Auto-generated method stub
+		
+		return Optional.ofNullable(products).filter(l->l.isEmpty()).orElseThrow(() -> new DataNotFoundExeption("Data is not present."));
+	
+	}
+
+	public Optional<Product[]> getAllProductsByCategory(String cat) {
+//		Product catProducts[] = new Product[4];
+//		int cnt = 0;
+//	
+//		
+//		for (Product product : products) {
+//			if(product.getCategoryName().equals(cat) && product!=null) {
+////				Optional.of(product);
+//				catProducts[cnt] = product;
+//				cnt++;
+//			}
+//		}
+//		
+//		
+//		
+//		return Optional.of(catProducts);
+		return null;
+	}
+
+	public String removeProductByProductId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Product updateProductByProductId(String id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

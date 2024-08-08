@@ -1,0 +1,20 @@
+package com.wu.ecommerce.service;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+
+
+public interface ProductService {
+		public Product addProduct(Product product) throws ClassNotFoundException, SQLException;
+		public Optional<Product> getEmployeeByProductId(String id);
+		public List<Product> getProducts() throws DataNotFoundExeption, ClassNotFoundException, SQLException;
+		public List<Product> getAllProductsByCategory(String cat) throws DataNotFoundExeption;
+		public String removeProductByProductId(String id);
+		public Product updateProductByProductId(String id, Product product);
+
+}

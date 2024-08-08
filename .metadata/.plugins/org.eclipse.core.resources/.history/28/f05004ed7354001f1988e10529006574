@@ -1,0 +1,56 @@
+package com.wu.ecommerce.repo;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.dto.User;
+import com.wu.ecommerce.exception.UserNotFoundException;
+
+public class UserRepositoryImpl implements UserRepository {
+
+	private ArrayList<User> products = new ArrayList<User>();
+	public User addUser(User user) {
+		// TODO Auto-generated method stub
+		boolean result = products.add(user);
+		if (result) {
+			return user;
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public User getUserByUserId(String id) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		User u = null;
+//		for (Product product : products) {
+//			if(product.getProductId().equals(id) && product != null) {
+//				return Optional.of(product);
+//			}
+//		}
+		return products.stream().filter(e->e.getUserId().equals(id))
+				.findFirst().orElseThrow(()->new UserNotFoundException("Id not found."));
+		
+	}
+
+	@Override
+	public Optional<User[]> getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String removeUserByUserId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUserByUserId(String id, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

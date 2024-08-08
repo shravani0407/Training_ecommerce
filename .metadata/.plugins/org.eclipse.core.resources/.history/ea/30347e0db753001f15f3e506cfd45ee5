@@ -1,0 +1,44 @@
+package com.wu.ecommerce;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.service.ProductService;
+import com.wu.ecommerce.service.ProductServiceImpl;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		//data transport object = transfers data from one layer to other
+//		ProductService productService = ProductServiceImpl.getInstance();
+//		
+//		
+//		
+//		
+//			productService.addProduct(new Product("1", "bottle", 100, "stationary"));
+//			productService.addProduct(new Product("2", "bottle1", 100, "stationary"));
+//			productService.addProduct(new Product("3", "bottle2", 100, "stationary"));
+//			productService.addProduct(new Product("4", "bottle3", 100, "stationary"));
+//		
+//		
+////		productService.getEmployeeByProductId("1");
+////		productService.getProducts();
+//		productService.getAllProductsByCategory("stationary");
+		
+		
+		int a = 0; 
+		try {
+			a = 10/5;
+			System.out.println("inside the try");
+		}
+		catch(ArithmeticException e){
+			a = 10/2;
+			System.out.println("inside the catch");
+		}
+		finally {
+			System.out.println("hello");
+		}
+		System.out.println(a);
+		
+	}
+
+}

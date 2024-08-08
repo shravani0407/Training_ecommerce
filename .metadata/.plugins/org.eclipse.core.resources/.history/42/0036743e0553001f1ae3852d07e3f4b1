@@ -1,0 +1,22 @@
+package com.wu.ecommerce.service;
+
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+
+
+public interface ProductService {
+	
+	
+		
+		
+		public Product addProduct(Product product);
+		public Optional<Product> getEmployeeByProductId(String id);
+		public Optional<Product[]> getProducts();
+		public Optional<Product[]> getAllProductsByCategory(String cat);
+		public String removeProductByProductId(String id);
+		public Product updateProductByProductId(String id, Product product);
+		
+	
+
+}

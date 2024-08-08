@@ -1,0 +1,39 @@
+package com.wu.ecommerce.repo;
+
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+
+public class UserRepositoryImpl implements UserRepository {
+
+	@Override
+	public Product addUser(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Product> getUserByUserId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Product[]> getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String removeUserByUserId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product updateUserByUserId(String id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

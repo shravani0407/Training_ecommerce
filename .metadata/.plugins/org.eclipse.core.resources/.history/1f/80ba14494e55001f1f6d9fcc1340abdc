@@ -1,0 +1,59 @@
+package com.wu.ecommerce.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.exception.DataNotFoundExeption;
+import com.wu.ecommerce.repo.ProductRepository;
+import com.wu.ecommerce.repo.ProductRepositoryImpl;
+
+public class ProductServiceImpl implements ProductService {
+	
+	private ProductRepository productRepository = ProductRepositoryImpl.getInstance();
+	
+	private ProductServiceImpl() {
+		
+	}
+	
+	private static ProductService productService;
+	
+	public static ProductService getInstance() {
+		if(productService == null) {
+			productService = new ProductServiceImpl();
+		}
+		return productService;
+	}
+
+	public Product addProduct(Product product) {
+		// TODO Auto-generated method stub
+		return productRepository.addProduct(product);
+	}
+
+	public Optional<Product> getEmployeeByProductId(String id) {
+		// TODO Auto-generated method stub
+		return productRepository.getEmployeeByProductId(id);
+	}
+
+	public Set<Product> getProducts() throws DataNotFoundExeption {
+		// TODO Auto-generated method stub
+		return productRepository.getProducts();
+	}
+
+	public List<Product> getAllProductsByCategory(String cat) throws DataNotFoundExeption {
+		// TODO Auto-generated method stub
+		return productRepository.getAllProductsByCategory(cat);
+	}
+
+	public String removeProductByProductId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Product updateProductByProductId(String id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.wu.ecommerce.repo;
+
+import java.util.Optional;
+import com.wu.ecommerce.dto.User;
+
+public interface UserRepository {
+
+	public User addUser(User user);
+	public Optional<User> getUserByUserId(String id);
+	public Optional<User[]> getUser();
+	public String removeUserByUserId(String id);
+	public User updateUserByUserId(String id, User user);
+	
+}

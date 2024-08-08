@@ -1,0 +1,16 @@
+package com.wu.ecommerce.exception;
+
+import java.util.function.Supplier;
+
+public class DataNotFoundExeption implements Exception {
+	public DataNotFoundExeption(String msg) {
+		super(msg);
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.getMessage();
+	}
+
+}

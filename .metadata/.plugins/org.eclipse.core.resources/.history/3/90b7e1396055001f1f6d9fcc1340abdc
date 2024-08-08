@@ -1,0 +1,98 @@
+package com.wu.ecommerce.repo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+import com.wu.ecommerce.dto.User;
+import com.wu.ecommerce.exception.UserNotFoundException;
+import com.wu.ecommerce.utils.DBUtils;
+
+public class UserRepositoryImpl implements UserRepository {
+
+	private ArrayList<User> products = new ArrayList<User>();
+	
+	
+	
+	public User addUser(User user) {
+		// TODO Auto-generated method stub
+//		boolean result = products.add(user);
+//		if (result) {
+//			return user;
+//		}
+//		else {
+//			return null;
+//		}
+		
+		
+		String insertStatement = "insert into user_table(userId, firstName, lastName, contact ) "
+				+ "values (?,?,?,?)";
+		Connection connection = DBUtils.getInstance().getConnection();
+		//prepared statement:
+		PreparedStatement preparedStatement= connection.prepareStatement(insertStatement);
+		preparedStatement.setString(1, user.getUserId());
+		preparedStatement.setString(2, user.getFirstName());
+		preparedStatement.setInt(3, user.getLastName());
+		preparedStatement.setString(4, user.getContact());
+		
+		int result = preparedStatement.executeUpdate();
+		
+		if(result > 0) {
+			return product;
+		}
+		else {
+			return null;
+		}
+
+		
+		
+	}
+
+	@Override
+	public User getUserByUserId(String id) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		User u = null;
+//		for (Product product : products) {
+//			if(product.getProductId().equals(id) && product != null) {
+//				return Optional.of(product);
+//			}
+//		}
+		return products.stream().filter(e->e.getUserId().equals(id))
+				.findFirst().orElseThrow(()->new UserNotFoundException("user not found."));
+		
+	}
+
+	@Override
+	public Optional<User[]> getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String removeUserByUserId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUserByUserId(String id, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	private static UserRepository userRepository;
+
+	public static UserRepository getInstance() {
+		if(userRepository == null) {
+			//create the object
+			userRepository = new UserRepositoryImpl();
+		}
+		return userRepository;
+	}
+
+	
+
+	}
+

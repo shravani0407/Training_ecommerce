@@ -1,0 +1,7 @@
+package com.wu.ecommerce.dto;
+
+public class User {
+	private string userId;
+	private string firstName;
+	private 
+}

@@ -1,0 +1,54 @@
+package com.wu.ecommerce.repo;
+
+import java.util.Optional;
+
+import com.wu.ecommerce.dto.Product;
+
+public class ProductRepositoryImpl implements ProductRepository {
+	
+	private ProductRepositoryImpl() {
+		// TODO Auto-generated constructor stub
+	}
+	private Product[] products = new Product[10];
+	
+	private static ProductRepository productRepository;
+
+	public static ProductRepository getInstance() {
+		if(productRepository == null) {
+			//create the object
+			productRepository = new ProductRepositoryImpl();
+		}
+		return productRepository;
+	}
+	
+	public Product addProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Optional<Product> getEmployeeByProductId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Optional<Product[]> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Optional<Product[]> getAllProductsByCategory(String cat) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String removeProductByProductId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Product updateProductByProductId(String id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
